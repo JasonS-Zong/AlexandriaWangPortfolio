@@ -244,6 +244,24 @@
 
     </footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const dropdown = document.querySelector(".dropdown");
+    const trigger = dropdown.querySelector("a");
+
+    trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle("open");
+    });
+
+    // Close dropdown when clicking anywhere else
+    document.addEventListener("click", (e) => {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove("open");
+        }
+    });
+});
+</script>
 
 </body>
 </html>
