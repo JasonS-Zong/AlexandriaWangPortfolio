@@ -246,24 +246,36 @@
 
     </footer>
 
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const dropdown = document.querySelector(".dropdown");
     const trigger = dropdown.querySelector("a");
+    const nav = document.querySelector("nav");
 
     trigger.addEventListener("click", (e) => {
         e.preventDefault();
+        e.stopPropagation();
+
         dropdown.classList.toggle("open");
     });
 
-    // Close dropdown when clicking anywhere else
-    document.addEventListener("click", (e) => {
+    // Close when clicking another navigation item
+    nav.addEventListener("click", (e) => {
         if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove("open");
+        }
+    });
+
+    // Close when clicking anywhere outside the navigation
+    document.addEventListener("click", (e) => {
+        if (!nav.contains(e.target)) {
             dropdown.classList.remove("open");
         }
     });
 });
 </script>
+
 
 </body>
 </html>
