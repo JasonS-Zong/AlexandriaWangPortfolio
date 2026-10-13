@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run — Alexandria Wang</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">Alexandria Wang</a>
+</header>
+
+<main class="project-page">
+
+    <h1>Project One</h1>
+
+    <img src="images/2026_Wang_Alexandria_RUN_Still.png" alt="Run">
+
+    <p>
+        Description of the project goes here. You can write about the
+        process, tools, inspiration, and what you learned.
+    </p>
+
+</main>
+
+<footer>
+    © 2026 Alexandria Wang. All rights reserved.
+</footer>
+
+</body>
+</html>
 
