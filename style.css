@@ -59,27 +59,21 @@
             opacity: 0.45;
         }
 
+      
         .dropdown {
-            position: relative;
+        position: relative;
         }
 
         .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 20px;
-            left: 0;
-            background: white;
-            min-width: 150px;
-            padding-top: 10px;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
         }
 
-        .dropdown-content a {
-            display: block;
-            padding: 5px 0;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
+        .dropdown.open .dropdown-content {
+        display: block;
         }
 
 
