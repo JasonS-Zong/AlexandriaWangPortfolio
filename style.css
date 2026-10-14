@@ -2,14 +2,15 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: content-box;
         }
 
         html {
             scroll-behavior: smooth;
         }
 
-        body {
+        body {                        
+            justify-content: space-between;
             margin: 0;
             padding: 0;
             font-family: Arial, Helvetica, sans-serif;
@@ -18,7 +19,6 @@
             background-size: cover;
             background-repeat: repeat;
             background-position: center;
-            
             color: #111;
             font-size: 14px;
         }
@@ -28,8 +28,9 @@
         ========================= */
 
         header {
+            box-sizing: content-box;
             width: 100%;
-            padding: 0px;
+            padding: 20px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -40,7 +41,7 @@
             z-index: 100;
         }
 
-        .logo {
+        .logo {                        
             font-size: 18px;
             font-weight: normal;
             text-decoration: none;
@@ -69,7 +70,7 @@
         }
 
         .dropdown-content {
-            display: none;
+            display: block;
             position: absolute;
             top: 20px;
             left: 0;
@@ -115,9 +116,11 @@
 
         .projects {
             padding: 40px;
+            justify-content: center;
         }
 
         .section-title {
+            justify-content: center;
             font-size: 13px;
             margin-bottom: 30px;
             text-transform: uppercase;
@@ -131,6 +134,7 @@
         }
 
         .project {
+            justify-content: center;
             position: relative;
             overflow: hidden;
             background: #eee;
@@ -138,6 +142,7 @@
 
         .project img {
             width: 100%;
+            justify-content: center;
             height: 500px;
             object-fit: cover;
             display: block;
@@ -151,14 +156,17 @@
         .project-info {
             padding: 15px 0 30px;
             display: flex;
+            justify-content: center;
             justify-content: space-between;
         }
 
         .project-title {
+            justify-content: center;
             font-size: 14px;
         }
 
         .project-category {
+            justify-content: center;
             font-size: 12px;
             opacity: 0.55;
         }
@@ -169,11 +177,13 @@
         ========================= */
 
         .about {
+            justify-content: center;
             padding: 180px 40px;
             max-width: 900px;
         }
 
         .about h2 {
+            justify-content: center;
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -181,6 +191,7 @@
         }
 
         .about p {
+            justify-content: center;
             font-size: clamp(25px, 4vw, 50px);
             line-height: 1.1;
             letter-spacing: -1px;
@@ -192,14 +203,15 @@
         ========================= */
 
         .contact {
+            justify-content: center;
             padding: 100px 40px 50px;
-            border-top: 1px solid #ddd;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
         }
 
         .contact h2 {
+            justify-content: center;
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -207,6 +219,7 @@
         }
 
         .contact a {
+            justify-content: center;
             color: #111;
             text-decoration: none;
             display: block;
@@ -218,6 +231,7 @@
         }
 
         footer {
+            justify-content: center;
             padding: 30px 40px;
             font-size: 11px;
             opacity: 0.5;
@@ -242,14 +256,17 @@
             }
 
             .hero {
+                justify-content: center;
                 min-height: 60vh;
             }
 
             .hero h1 {
+                justify-content: center;
                 letter-spacing: -3px;
             }
 
             .projects {
+                justify-content: center;
                 padding: 20px;
             }
 
@@ -258,14 +275,17 @@
             }
 
             .project img {
+                justify-content: center;
                 height: 400px;
             }
 
             .about {
+                justify-content: center;
                 padding: 100px 20px;
             }
 
             .contact {
+                justify-content: center;
                 padding: 70px 20px 30px;
                 flex-direction: column;
                 align-items: flex-start;
@@ -273,6 +293,7 @@
             }
 
             footer {
+                justify-content: center;
                 padding: 20px;
             }
         }
