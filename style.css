@@ -16,6 +16,11 @@
             background: #ffb7ce;
             color: #111;
             font-size: 14px;
+            background-image: url('your-gif.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+}
         }
 
         /* =========================
