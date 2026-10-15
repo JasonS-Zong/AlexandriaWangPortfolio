@@ -14,7 +14,7 @@
 <style>
         * {
     margin: 0;
-    padding: 0;
+    padding: 5;
     box-sizing: border-box;
     }
         html {
@@ -25,7 +25,7 @@
             text-align: center;
             justify-content: space-between;
             margin: 0;
-            padding: 0;
+            padding: 5;
         font-family: Regalia Monarch, serif;
             background-color: #ffb7ce; 
             background-image: url("images/dgcrlbf-fc7b7b5c-9d04-4864-aa56-c8eda9431ed3-ezgif.com-speed.gif");
@@ -34,10 +34,8 @@
             background-position: center;
             color: #111;
             font-size: 20px;
-            <div class="container">
-<img src="https://via.placeholder.com/600x300" alt="Sample Image">
-<div class="text-overlay">Hello World</div>
-</div>
+            
+
             container {
 position: relative; /* Makes this the reference for absolute positioning */
 display: inline-block;
@@ -206,7 +204,7 @@ nav a:hover {
 /* Optional: subtle dark overlay on hover */
 .project-overlay {
     background: rgba(0, 0, 0, 0.2);
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.3s ease;
 }
 
@@ -250,7 +248,7 @@ nav a:hover {
         }
 
         .project-info {
-            padding: 15px 0 30px;
+            padding: 15px 30px;
             display: flex;
             justify-content: center;
             justify-content: space-between;
