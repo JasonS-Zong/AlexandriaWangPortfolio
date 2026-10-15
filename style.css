@@ -1,4 +1,17 @@
-    <style>
+@font-face {
+    font-family: "Regalia Monarch";
+    src: url("fonts/Regalia-Monarch.otf") format("otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+<style>
         * {
     margin: 0;
     padding: 0;
@@ -8,18 +21,19 @@
             scroll-behavior: smooth;
         }
 
-        body {                        
+        body {                
+            text-align: center;
             justify-content: space-between;
             margin: 0;
             padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
+        font-family: "Regalia Monarch", serif;
             background-color: #ffb7ce; 
             background-image: url("images/dgcrlbf-fc7b7b5c-9d04-4864-aa56-c8eda9431ed3-ezgif.com-speed.gif");
             background-size: cover;
             background-repeat: repeat;
             background-position: center;
             color: #111;
-            font-size: 14px;
+            font-size: 30px;
         }
 
         /* =========================
@@ -40,7 +54,7 @@
 }
 
 .logo {
-    font-size: 18px;
+    font-size: 30px;
     font-weight: normal;
     text-decoration: none;
     color: #111;
@@ -59,7 +73,7 @@ nav {
 nav a {
     color: #111;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 30px;
     transition: opacity 0.2s ease;
     white-space: nowrap;
 }
@@ -92,7 +106,7 @@ nav a:hover {
         ========================= */
 
         .hero {
-            min-height: 75vh;
+            min-height: 150vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -101,14 +115,14 @@ nav a:hover {
         }
 
         .hero h1 {
-            font-size: clamp(45px, 8vw, 110px);
+            font-size: clamp(90px, 16vw, 220px);
             font-weight: normal;
             letter-spacing: -5px;
         }
 
         .hero p {
             margin-top: 20px;
-            font-size: 15px;
+            font-size: 30px;
         }
 
 
@@ -123,7 +137,7 @@ nav a:hover {
 
         .section-title {
             justify-content: center;
-            font-size: 13px;
+            font-size: 26px;
             margin-bottom: 30px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -145,7 +159,7 @@ nav a:hover {
         .project img {
             width: 100%;
             justify-content: center;
-            height: 500px;
+            height: 900px;
             object-fit: cover;
             display: block;
             transition: transform 0.5s ease;
@@ -164,12 +178,12 @@ nav a:hover {
 
         .project-title {
             justify-content: center;
-            font-size: 14px;
+            font-size: 28px;
         }
 
         .project-category {
             justify-content: center;
-            font-size: 12px;
+            font-size: 24px;
             opacity: 0.55;
         }
 
@@ -186,7 +200,7 @@ nav a:hover {
 
         .about h2 {
             justify-content: center;
-            font-size: 13px;
+            font-size: 26px;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 30px;
@@ -205,7 +219,7 @@ nav a:hover {
         ========================= */
 
         .contact {
-            justify-content: center;
+   text-align: left;
             padding: 100px 40px 50px;
             display: flex;
             justify-content: space-between;
@@ -213,15 +227,15 @@ nav a:hover {
         }
 
         .contact h2 {
-            justify-content: center;
-            font-size: 13px;
+   text-align: left;
+            font-size: 26px;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 20px;
         }
 
         .contact a {
-            justify-content: center;
+   text-align: left;
             color: #111;
             text-decoration: none;
             display: block;
@@ -233,9 +247,10 @@ nav a:hover {
         }
 
         footer {
+            text-align: left;
             justify-content: center;
             padding: 30px 40px;
-            font-size: 11px;
+            font-size: 22px;
             opacity: 0.5;
         }
 
