@@ -152,12 +152,67 @@ nav a:hover {
         /* =========================
            PROJECTS
         ========================= */
+            ```css
+.project {
+    position: relative;
+    overflow: hidden;
+}
+
+/* The image */
+.project img {
+    width: 100%;
+    height: 900px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Text placed ON TOP of the image */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    text-align: center;
+    z-index: 2;
+}
+
 
         .projects {
             text-align: center;
             padding: 40px;
             justify-content: center;
         }
+            
+/* Title */
+.project-overlay h3 {
+    font-family: "Regalia Monarch", serif;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+/* Subtitle */
+.project-overlay p {
+    font-size: 18px;
+}
+
+/* Optional: subtle dark overlay on hover */
+.project-overlay {
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project:hover .project-overlay {
+    opacity: 1;
+}
 
         .section-title {
             text-align: center;
