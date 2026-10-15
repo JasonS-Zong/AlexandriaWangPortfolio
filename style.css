@@ -1,9 +1,10 @@
 @font-face {
     font-family: "Regalia Monarch";
-    src: url("fonts/Regalia-Monarch.otf") format("otf");
+    src: url("fonts/Regalia-Monarch.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
+
 
 * {
     margin: 0;
@@ -26,7 +27,7 @@
             justify-content: space-between;
             margin: 0;
             padding: 5;
-        font-family: Regalia Monarch, serif;
+            font-family: "Regalia Monarch", serif;
             background-color: #ffb7ce; 
             background-image: url("images/dgcrlbf-fc7b7b5c-9d04-4864-aa56-c8eda9431ed3-ezgif.com-speed.gif");
             background-size: cover;
