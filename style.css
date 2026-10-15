@@ -26,14 +26,14 @@
             justify-content: space-between;
             margin: 0;
             padding: 0;
-        font-family: "Regalia Monarch", serif;
+        font-family: Regalia Monarch, serif;
             background-color: #ffb7ce; 
             background-image: url("images/dgcrlbf-fc7b7b5c-9d04-4864-aa56-c8eda9431ed3-ezgif.com-speed.gif");
             background-size: cover;
             background-repeat: repeat;
             background-position: center;
             color: #111;
-            font-size: 30px;
+            font-size: 20px;
         }
 
         /* =========================
@@ -54,7 +54,7 @@
 }
 
 .logo {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: normal;
     text-decoration: none;
     color: #111;
@@ -73,7 +73,7 @@ nav {
 nav a {
     color: #111;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 20px;
     transition: opacity 0.2s ease;
     white-space: nowrap;
 }
@@ -91,7 +91,7 @@ nav a:hover {
     top: 100%;
     left: 0;
     background: white;
-    min-width: 150px;
+    min-width: 130px;
     padding-top: 10px;
     z-index: 101;
 }
@@ -115,7 +115,7 @@ nav a:hover {
         }
 
         .hero h1 {
-            font-size: clamp(90px, 16vw, 220px);
+            font-size: clamp(60px, 11vw, 170px);
             font-weight: normal;
             letter-spacing: -5px;
         }
@@ -131,11 +131,13 @@ nav a:hover {
         ========================= */
 
         .projects {
+            text-align: center;
             padding: 40px;
             justify-content: center;
         }
 
         .section-title {
+            text-align: center;
             justify-content: center;
             font-size: 26px;
             margin-bottom: 30px;
@@ -193,20 +195,23 @@ nav a:hover {
         ========================= */
 
         .about {
+            text-align: center;
             justify-content: center;
             padding: 180px 40px;
-            max-width: 900px;
+            width: 100%;
         }
 
         .about h2 {
+            text-align: center;
             justify-content: center;
-            font-size: 26px;
+            font-size: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 30px;
         }
 
         .about p {
+            text-align: center;
             justify-content: center;
             font-size: clamp(25px, 4vw, 50px);
             line-height: 1.1;
