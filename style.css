@@ -1,10 +1,9 @@
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: content-box;
-        }
-
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
         html {
             scroll-behavior: smooth;
         }
@@ -27,62 +26,65 @@
            NAVIGATION
         ========================= */
 
-        header {
-            box-sizing: content-box;
-            width: 100%;
-            padding: 20px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            position: sticky;
-            top: 0;
-            background: white;
-            z-index: 100;
-        }
+  header {
+    width: 100%;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+}
 
-        .logo {                        
-            font-size: 18px;
-            font-weight: normal;
-            text-decoration: none;
-            color: #111;
-        }
+.logo {
+    font-size: 18px;
+    font-weight: normal;
+    text-decoration: none;
+    color: #111;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
 
-        nav {
-            display: flex;
-            gap: 25px;
-            align-items: flex-start;
-        }
+nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
 
-        nav a {
-            color: #111;
-            text-decoration: none;
-            font-size: 13px;
-            transition: opacity 0.2s ease;
-        }
+nav a {
+    color: #111;
+    text-decoration: none;
+    font-size: 13px;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+}
 
-        nav a:hover {
-            opacity: 0.45;
-        }
-
+nav a:hover {
+    opacity: 0.45;
+}
         .dropdown {
             position: relative;
         }
 
-        .dropdown-content {
-            display: block;
-            position: absolute;
-            top: 20px;
-            left: 0;
-            background: white;
-            min-width: 150px;
-            padding-top: 10px;
-        }
+     .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 150px;
+    padding-top: 10px;
+    z-index: 101;
+}
 
-        .dropdown-content a {
-            display: block;
-            padding: 20px;
-        }
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 
         /* =========================
@@ -241,19 +243,20 @@
         /* =========================
            MOBILE
         ========================= */
+@media (max-width: 700px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
 
-        @media (max-width: 700px) {
+    nav {
+        width: 100%;
+        gap: 12px;
+        justify-content: flex-start;
+    }
 
-            header {
-                padding: 20px;
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            nav {
-                flex-wrap: wrap;
-                gap: 15px;
-            }
 
             .hero {
                 justify-content: center;
