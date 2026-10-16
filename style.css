@@ -1,122 +1,96 @@
-    }
 
-    .dropdown-content a {
-        font-size: 21px;
-        padding: 13px 18px;
-    }
+/* ========================================
+   FONT
+======================================== */
 
-    /* Hero */
-
-    .hero {
-        min-height: 40vh;
-        padding: 5px 15px;
-    }
-
-    .hero h1 {
-        font-size: clamp(55px, 13vw, 100px);
-        letter-spacing: -2px;
-    }
-
-    .hero p {
-        font-size: 26px;
-        margin-top: 10px;
-    }
-
-    /* Projects */
-
-    .projects {
-        padding: 20px 15px;
-    }
-
-    .section-title {
-        font-size: 30px;
-    }
-
-    .project-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
-
-    .project img {
-        height: 400px;
-    }
-
-    .project-overlay {
-        padding: 15px;
-    }
-
-    .project-overlay h3 {
-        font-size: clamp(36px, 9vw, 55px);
-    }
-
-    .project-overlay p {
-        font-size: 21px;
-    }
-
-    .project-info {
-        padding: 15px;
-        gap: 12px;
-    }
-
-    .project-title {
-        font-size: 27px;
-    }
-
-    .project-category {
-        font-size: 22px;
-    }
-
-    /* About */
-
-    .about {
-        padding: 90px 20px;
-    }
-
-    .about h2 {
-        font-size: 24px;
-        margin-bottom: 25px;
-    }
-
-    .about p {
-        font-size: clamp(28px, 7vw, 42px);
-        letter-spacing: 0;
-    }
-
-    /* Contact */
-
-    .contact {
-        padding: 70px 25px 40px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 35px;
-    }
-
-    .contact-left h2 {
-        font-size: 32px;
-    }
-
-    .contact-left p {
-        font-size: 24px;
-    }
-
-    .original-contact,
-    .contact-links {
-        gap: 18px;
-    }
-
-    .contact a {
-        font-size: 24px;
-        gap: 12px;
-    }
-
-    .contact a i {
-        font-size: 28px;
-    }
-
-    /* Footer */
-
-    footer {
-        padding: 20px;
-        font-size: 22px;
-    }
+@font-face {
+    font-family: "Regalia Monarch";
+    src: url("fonts/Regalia-Monarch.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
+
+
+/* ========================================
+   GLOBAL RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Regalia Monarch", serif;
+    background-color: #ffb7ce;
+    background-image: url("images/dgcrlbf-fc7b7b5c-9d04-4864-aa56-c8eda9431ed3-ezgif.com-speed.gif");
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: #111;
+    font-size: 24px;
+    text-align: center;
+}
+
+
+/* ========================================
+   IMAGE CONTAINER / TEXT OVERLAY
+======================================== */
+
+.container {
+    position: relative;
+    display: inline-block;
+}
+
+.container img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 32px;
+    font-weight: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+
+/* ========================================
+   HEADER / NAVIGATION
+======================================== */
+
+header {
+    width: 100%;
+    padding: 36px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: normal;
+    text-decoration: none;
+    color: #111;
+    white-space: nowrap;
+    flex-shrink: 0;
