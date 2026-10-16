@@ -248,7 +248,6 @@ nav a:hover {
     gap: 20px;
 }
 
-
 /* ========================================
    PROJECT IMAGES
 ======================================== */
@@ -258,7 +257,12 @@ nav a:hover {
     overflow: hidden;
 }
 
-/* PROJECT IMAGE */
+.project a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
 .project-image {
     position: relative;
     width: 100%;
@@ -273,9 +277,11 @@ nav a:hover {
     transition: transform 0.5s ease;
 }
 
-/* DARK OVERLAY - CENTERED AT 75% */
-.project-image::after {
-    content: "";
+/* ========================================
+   CENTERED DARK OVERLAY
+======================================== */
+
+.project-overlay {
     position: absolute;
 
     top: 50%;
@@ -286,52 +292,34 @@ nav a:hover {
     height: 75%;
 
     background: rgba(0, 0, 0, 0.75);
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* TEXT OVERLAY */
-.project-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    width: 75%;
-    height: 75%;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
-    text-align: center;
     z-index: 2;
     pointer-events: none;
 }
-
-/* HOVER */
-.project-image:hover img {
-    transform: scale(1.03);
-}
-
-
 
 /* ========================================
-   PROJECT IMAGE OVERLAY
+   OVERLAY TEXT
 ======================================== */
 
-.project-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
+.project-overlay h3 {
+    color: white;
+    font-size: clamp(28px, 4vw, 60px);
+    font-weight: normal;
+    text-align: center;
+    background: none;
+    padding: 10px;
 }
 
-.project-overlay h3,
-.project-overlay p {
-    color: white;
-    padding: 10px 18px;
+/* ========================================
+   HOVER EFFECT
+======================================== */
+
+.project-image:hover img {
+    transform: scale(1.03);
 }
 
 /* ========================================
