@@ -26,7 +26,7 @@
             text-align: center;
             justify-content: space-between;
             margin: 0;
-            padding: 5;
+            padding: 5px;
             font-family: "Regalia Monarch", serif;
             background-color: #ffb7ce; 
             background-image: url("images/dgcrlbf-fc7b7b5c-9d04-4864-aa56-c8eda9431ed3-ezgif.com-speed.gif");
@@ -35,7 +35,7 @@
             background-position: center;
             color: #111;
             font-size: 20px;
-            
+        }
 
             container {
 position: relative; /* Makes this the reference for absolute positioning */
@@ -61,14 +61,14 @@ text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Improves readability */
         /* =========================
            NAVIGATION
         ========================= */
-
-  header {
+header {
     width: 100%;
-    padding: 10px 10px;
+    box-sizing: border-box;
+    padding: 28px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
     position: sticky;
     top: 0;
     background: white;
@@ -76,7 +76,7 @@ text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Improves readability */
 }
 
 .logo {
-    font-size: 20px;
+    font-size: 28px;
     font-weight: normal;
     text-decoration: none;
     color: #111;
@@ -86,7 +86,7 @@ text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Improves readability */
 
 nav {
     display: flex;
-    gap: 20px;
+    gap: 28px;
     align-items: center;
     flex-wrap: wrap;
     justify-content: flex-end;
@@ -95,7 +95,7 @@ nav {
 nav a {
     color: #111;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 24px;
     transition: opacity 0.2s ease;
     white-space: nowrap;
 }
@@ -103,6 +103,7 @@ nav a {
 nav a:hover {
     opacity: 0.45;
 }
+
         .dropdown {
             position: relative;
         }
@@ -122,31 +123,27 @@ nav a:hover {
     display: block;
 }
 
+    
+/* HERO */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+}
 
-        /* =========================
-           HERO
-        ========================= */
+.hero h1 {
+    font-size: clamp(70px, 12vw, 190px);
+    font-weight: normal;
+    letter-spacing: -3px;
+}
 
-        .hero {
-            min-height: 150vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 60px 30px;
-        }
-
-        .hero h1 {
-            font-size: clamp(60px, 11vw, 170px);
-            font-weight: normal;
-            letter-spacing: -5px;
-        }
-
-        .hero p {
-            margin-top: 20px;
-            font-size: 30px;
-        }
-
+.hero p {
+    margin-top: 15px;
+    font-size: clamp(24px, 3vw, 36px);
+}
 
         /* =========================
            PROJECTS
@@ -167,6 +164,33 @@ nav a:hover {
 /* Text placed ON TOP of the image */
 .project-overlay {
     position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+    z-index: 2;
+}
+
+.project-overlay h3 {
+    font-family: "Regalia Monarch", serif;
+    font-size: 40px;
+    font-weight: normal;
+}
+
+.project-overlay p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* Optional: subtle dark overlay on hover */
+.project-overlay {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -180,36 +204,13 @@ nav a:hover {
     color: white;
     text-align: center;
     z-index: 2;
-}
 
-
-        .projects {
-            text-align: center;
-            padding: 40px;
-            justify-content: center;
-        }
-            
-/* Title */
-.project-overlay h3 {
-    font-family: "Regalia Monarch", serif;
-    font-size: 25px;
-    font-weight: normal;
-}
-
-/* Subtitle */
-.project-overlay p {
-    font-size: 18px;
-}
-
-/* Optional: subtle dark overlay on hover */
-.project-overlay {
-    background: rgba(0, 0, 0, 0.2);
-    opacity: 1;
-    transition: opacity 0.3s ease;
+    background: rgba(0, 0, 0, 0.05);
+    transition: background 0.3s ease;
 }
 
 .project:hover .project-overlay {
-    opacity: 1;
+    background: rgba(0, 0, 0, 0.2);
 }
 
         .section-title {
@@ -339,20 +340,31 @@ nav a:hover {
         /* =========================
            MOBILE
         ========================= */
-@media (max-width: 700px) {
+
+   @media (max-width: 700px) {
     header {
-        padding: 15px 20px;
+        padding: 20px;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .logo {
+        font-size: 25px;
+        white-space: normal;
+        text-align: center;
     }
 
     nav {
         width: 100%;
-        gap: 12px;
-        justify-content: flex-start;
+        gap: 14px;
+        justify-content: center;
     }
 
+    nav a {
+        font-size: 19px;
+    }
+}
 
             .hero {
                 justify-content: center;
