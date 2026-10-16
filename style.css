@@ -12,12 +12,6 @@
     box-sizing: border-box;
     }
 
-<style>
-        * {
-    margin: 0;
-    padding: 5;
-    box-sizing: border-box;
-    }
         html {
             scroll-behavior: smooth;
         }
@@ -61,10 +55,11 @@ text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Improves readability */
         /* =========================
            NAVIGATION
         ========================= */
+
 header {
     width: 100%;
     box-sizing: border-box;
-    padding: 28px 40px;
+    padding: 36px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,7 +71,7 @@ header {
 }
 
 .logo {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: normal;
     text-decoration: none;
     color: #111;
@@ -86,7 +81,7 @@ header {
 
 nav {
     display: flex;
-    gap: 28px;
+    gap: 30px;
     align-items: center;
     flex-wrap: wrap;
     justify-content: flex-end;
@@ -95,7 +90,7 @@ nav {
 nav a {
     color: #111;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 26px;
     transition: opacity 0.2s ease;
     white-space: nowrap;
 }
@@ -104,34 +99,61 @@ nav a:hover {
     opacity: 0.45;
 }
 
-        .dropdown {
-            position: relative;
-        }
 
-     .dropdown-content {
-    display: none;
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: block;
     position: absolute;
     top: 100%;
     left: 0;
+    min-width: 180px;
+    padding: 10px 0;
     background: white;
-    min-width: 130px;
-    padding-top: 10px;
     z-index: 101;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(8px);
+
+    /* Wait before hiding after the pointer leaves */
+    transition:
+        opacity 0.25s ease 1.5s,
+        transform 0.25s ease 1.5s,
+        visibility 0s linear 1.75s;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+
+    /* Open immediately */
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0s;
+}
+
+.dropdown-content a {
     display: block;
+    padding: 10px 16px;
+    white-space: nowrap;
 }
 
-    
-/* HERO */
+
 .hero {
-    min-height: 85vh;
+    min-height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 30px 20px;
+    padding: 15px 20px;
 }
 
 .hero h1 {
@@ -141,9 +163,10 @@ nav a:hover {
 }
 
 .hero p {
-    margin-top: 15px;
+    margin-top: 12px;
     font-size: clamp(24px, 3vw, 36px);
 }
+
 
         /* =========================
            PROJECTS
@@ -161,7 +184,44 @@ nav a:hover {
     display: block;
 }
 
-/* Text placed ON TOP of the image */
+
+/* PROJECT IMAGE */
+.project {
+    position: relative;
+    overflow: hidden;
+    background: #eee;
+}
+
+.project img {
+    width: 100%;
+    height: 900px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.project:hover img {
+    transform: scale(1.03);
+}
+
+
+.project {
+    position: relative;
+    overflow: hidden;
+}
+
+.project img {
+    width: 100%;
+    height: 900px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.project:hover img {
+    transform: scale(1.03);
+}
+
 .project-overlay {
     position: absolute;
     inset: 0;
@@ -171,43 +231,34 @@ nav a:hover {
     justify-content: center;
     align-items: center;
 
-    background: rgba(0, 0, 0, 0.3);
+    /* Darker transparent black overlay */
+    background: rgba(0, 0, 0, 0.45);
+
     color: white;
     text-align: center;
+    text-decoration: none;
     z-index: 2;
 }
 
 .project-overlay h3 {
     font-family: "Regalia Monarch", serif;
-    font-size: 40px;
+    font-size: clamp(40px, 5vw, 75px);
     font-weight: normal;
+    text-decoration: none;
+    margin: 0;
 }
 
 .project-overlay p {
-    font-size: 20px;
-    margin-top: 10px;
+    font-size: 24px;
+    margin-top: 12px;
+    text-decoration: none;
 }
 
-/* Optional: subtle dark overlay on hover */
-.project-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+.project-overlay a {
     color: white;
-    text-align: center;
-    z-index: 2;
-
-    background: rgba(0, 0, 0, 0.05);
-    transition: background 0.3s ease;
+    text-decoration: none;
 }
+
 
 .project:hover .project-overlay {
     background: rgba(0, 0, 0, 0.2);
@@ -341,71 +392,71 @@ nav a:hover {
            MOBILE
         ========================= */
 
-   @media (max-width: 700px) {
-    header {
+  
+/* MOBILE */
+@media (max-width: 700px) {
+   
+header {
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.logo {
+    font-size: 25px;
+    white-space: normal;
+    text-align: center;
+}
+
+nav {
+    width: 100%;
+    gap: 14px;
+    justify-content: center;
+}
+
+nav a {
+    font-size: 19px;
+}
+
+    .hero {
+        min-height: 60vh;
         padding: 20px;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .projects {
+        padding: 20px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project img {
+        height: 400px;
+    }
+
+    .project-overlay h3 {
+        font-size: clamp(35px, 9vw, 55px);
+    }
+
+    .about {
+        padding: 100px 20px;
+    }
+
+    .contact {
+        padding: 70px 20px 30px;
         flex-direction: column;
-        align-items: center;
-        gap: 18px;
+        align-items: flex-start;
+        gap: 50px;
     }
 
-    .logo {
-        font-size: 25px;
-        white-space: normal;
-        text-align: center;
-    }
-
-    nav {
-        width: 100%;
-        gap: 14px;
-        justify-content: center;
-    }
-
-    nav a {
-        font-size: 19px;
+    footer {
+        padding: 20px;
     }
 }
 
-            .hero {
-                justify-content: center;
-                min-height: 60vh;
-            }
-
-            .hero h1 {
-                justify-content: center;
-                letter-spacing: -3px;
-            }
-
-            .projects {
-                justify-content: center;
-                padding: 20px;
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project img {
-                justify-content: center;
-                height: 400px;
-            }
-
-            .about {
-                justify-content: center;
-                padding: 100px 20px;
-            }
-
-            .contact {
-                justify-content: center;
-                padding: 70px 20px 30px;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 50px;
-            }
-
-            footer {
-                justify-content: center;
-                padding: 20px;
-            }
-        }
-    </style>
