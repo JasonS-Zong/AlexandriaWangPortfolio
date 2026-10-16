@@ -284,13 +284,9 @@ nav a:hover {
     align-items: center;
 
     background: transparent;
-    opacity: 1;
-
-    pointer
-
-.project:hover .project-overlay {
-    opacity: 1;
+    opacity: 0.1;
 }
+
 .project-overlay h3,
 .project-overlay p {
     background: rgba(0, 0, 0, 0.08);
