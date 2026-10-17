@@ -277,13 +277,13 @@ nav a:hover {
     transition: transform 0.5s ease;
 }
 
+
 /* ========================================
    CENTERED DARK OVERLAY
 ======================================== */
 
 .project-overlay {
     position: absolute;
-
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -299,6 +299,9 @@ nav a:hover {
 
     z-index: 2;
     pointer-events: none;
+
+    /* Allow text to scale with the overlay */
+    container-type: size;
 }
 
 /* ========================================
@@ -307,12 +310,18 @@ nav a:hover {
 
 .project-overlay h3 {
     color: white;
-    font-size: clamp(28px, 4vw, 60px);
+    font-size: clamp(12px, 12cqw, 60px);
     font-weight: normal;
     text-align: center;
-    background: none;
-    padding: 10px;
+
+    width: 100%;
+    padding: 5%;
+    box-sizing: border-box;
+
+    overflow-wrap: break-word;
+    line-height: 1.1;
 }
+
 
 /* ========================================
    HOVER EFFECT
@@ -483,7 +492,7 @@ footer {
    MOBILE
 ======================================== */
 
-@media (max-width: 700px) {
+@media (max-width: 500px) {
     body {
         font-size: 20px;
         background-attachment: scroll;
