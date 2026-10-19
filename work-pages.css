@@ -1,0 +1,73 @@
+/* Additional styles for the four work category pages. */
+.work-detail {
+  min-height: 75vh;
+  padding: 110px 8% 90px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 55px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: .7;
+}
+
+.back-link:hover { opacity: 1; }
+
+.work-hero {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.work-hero h1 {
+  font-size: clamp(38px, 5vw, 68px);
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0 0 18px;
+}
+
+.work-hero p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #777;
+  margin: 0;
+}
+
+.work-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.empty-projects {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 260px;
+  background: #f7f7f7;
+  color: #888;
+  text-align: center;
+  padding: 24px;
+}
+
+.work-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.dropdown.open .dropdown-content {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .work-detail { padding: 80px 5% 60px; }
+  .back-link { margin-bottom: 40px; }
+  .work-hero { margin-bottom: 45px; }
+  .work-gallery { grid-template-columns: 1fr; }
+}

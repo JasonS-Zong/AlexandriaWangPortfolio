@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation — Alexandria Wang</title>
+  <link rel="icon" type="image/x-icon" href="images/2026_Wang_Alexandria_RUN_Still.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="work-pages.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">ALEXANDRIA WANG</a>
+    <nav>
+      <a href="index.html">home</a>
+      <div class="dropdown">
+        <a href="projects.html" class="work-trigger" aria-expanded="false">work</a>
+        <div class="dropdown-content">
+          <a href="character.html">character design</a>
+          <a href="background.html">concept art</a>
+          <a href="film.html" aria-current="page">animation</a>
+          <a href="illustration.html">storyboards</a>
+        </div>
+      </div>
+      <a href="index.html#contact">contact</a>
+    </nav>
+  </header>
+
+  <main class="work-detail">
+    <a class="back-link" href="index.html#projects">← Back to work</a>
+    <section class="work-hero">
+      <h1>Animation</h1>
+      <p>Animation projects, motion studies, and short films.</p>
+    </section>
+    <section class="work-gallery" aria-label="Animation projects">
+      <!-- Replace this placeholder with your animation films or projects. -->
+      <div class="empty-projects">Animation projects coming soon.</div>
+    </section>
+  </main>
+
+  <footer>© 2026 Alexandria Wang. All rights reserved.</footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropdown = document.querySelector(".dropdown");
+      const trigger = dropdown.querySelector(".work-trigger");
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        const isOpen = dropdown.classList.toggle("open");
+        trigger.setAttribute("aria-expanded", String(isOpen));
+      });
+      document.addEventListener("click", (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.classList.remove("open");
+          trigger.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
