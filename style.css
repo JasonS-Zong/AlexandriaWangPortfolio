@@ -310,7 +310,7 @@ nav a:hover {
     width: 75%;
     height: 75%;
 
-    background: rgba(0, 0, 0, 0.10);
+    background: rgba(0, 0, 0, 0.20);
 
     display: flex;
     align-items: center;
