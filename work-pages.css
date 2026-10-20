@@ -181,28 +181,26 @@
    STORYBOARD PAGE
 ========================= */
 
-/* Center video and slides vertically */
-
 .work-gallery.storyboard-gallery {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
     align-items: center;
     justify-content: center;
-    gap: 50px;
-    width: 100%;
-    margin: 0 auto;
 }
 
-/* Make both embeds large and equal size */
+/* Same size for video and slides */
 
 .storyboard-gallery .embed-wrapper {
     width: 100%;
-    max-width: 1100px;
+    max-width: none;
     aspect-ratio: 16 / 9;
-    margin: 0 auto;
 }
 
-/* YouTube and Google Slides */
+/* Make iframe fill its container */
 
 .storyboard-gallery .embed-wrapper iframe {
     display: block;
@@ -235,6 +233,7 @@
     }
 
     .work-gallery.storyboard-gallery {
+               grid-template-columns: 1fr;
         gap: 30px;
     }
 
