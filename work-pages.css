@@ -63,9 +63,34 @@
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
+  /* STORYBOARD VIDEO AND SLIDES */
+
+.storyboard-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
 }
 
+/* Same size for both embeds */
+
+.embed-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.embed-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* Mobile */
+
 @media (max-width: 768px) {
+      .storyboard-gallery {
+        grid-template-columns: 1fr;
+    }
   .work-detail { padding: 80px 5% 60px; }
   .back-link { margin-bottom: 40px; }
   .work-hero { margin-bottom: 45px; }
