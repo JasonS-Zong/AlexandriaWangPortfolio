@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commissioned Work — Alexandria Wang</title>
+  <link rel="icon" type="image/x-icon" href="images/2026_Wang_Alexandria_RUN_Still.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="work-pages.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">ALEXANDRIA WANG</a>
+    <nav>
+      <a href="index.html">home</a>
+      <div class="dropdown">
+        <a href="projects.html" class="work-trigger" aria-expanded="false">work</a>
+        <div class="dropdown-content">
+          <a href="character.html">character design</a>
+          <a href="background.html">backgrounds</a>
+          <a href="film.html">animation</a>
+          <a href="illustration.html">storyboards</a>
+          <a href="commissioned.html" aria-current="page">commissioned work</a>
+                              <a href="props.html">props</a>
+
+        </div>
+      </div>
+      <a href="index.html#contact">contact</a>
+    </nav>
+  </header>
+
+  <main class="work-detail">
+    <a class="back-link" href="index.html#projects">← Back to work</a>
+    <section class="work-hero">
+      <h1>Commissioned Work</h1>
+      <p>Client commissions and custom illustrations.</p>
+    </section>
+    <section class="work-gallery" aria-label="Commissioned Work gallery">
+      <a class="gallery-tile" href="images/airplane.png" target="_blank" rel="noopener" aria-label="View Airplane at full size">
+        <img src="images/airplane.png" alt="Airplane" loading="lazy">
+        <span>Airplane</span>
+      </a>
+      <a class="gallery-tile" href="images/dragon.png" target="_blank" rel="noopener" aria-label="View Dragon at full size">
+        <img src="images/dragon.png" alt="Dragon" loading="lazy">
+        <span>Dragon</span>
+      </a>
+      <a class="gallery-tile" href="images/heart%20pond.png" target="_blank" rel="noopener" aria-label="View Heart Pond at full size">
+        <img src="images/heart%20pond.png" alt="Heart Pond" loading="lazy">
+        <span>Heart Pond</span>
+      </a>
+      <a class="gallery-tile" href="images/japan%20snow%20morning.png" target="_blank" rel="noopener" aria-label="View Japan Snow Morning at full size">
+        <img src="images/japan%20snow%20morning.png" alt="Japan Snow Morning" loading="lazy">
+        <span>Japan Snow Morning</span>
+      </a>
+      <a class="gallery-tile" href="images/japan%20snow.png" target="_blank" rel="noopener" aria-label="View Japan Snow at full size">
+        <img src="images/japan%20snow.png" alt="Japan Snow" loading="lazy">
+        <span>Japan Snow</span>
+      </a>
+      <a class="gallery-tile" href="images/truck_hw_1_point_sketch.png" target="_blank" rel="noopener" aria-label="View Truck Perspective Sketch at full size">
+        <img src="images/truck_hw_1_point_sketch.png" alt="Truck Perspective Sketch" loading="lazy">
+        <span>Truck Perspective Sketch</span>
+      </a>
+      <a class="gallery-tile" href="images/unicorn%20dog%20background.png" target="_blank" rel="noopener" aria-label="View Unicorn Dog Background at full size">
+        <img src="images/unicorn%20dog%20background.png" alt="Unicorn Dog Background" loading="lazy">
+        <span>Unicorn Dog Background</span>
+      </a>
+    </section>
+  </main>
+
+  <footer>© 2026 Alexandria Wang. All rights reserved.</footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropdown = document.querySelector(".dropdown");
+      const trigger = dropdown.querySelector(".work-trigger");
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        const isOpen = dropdown.classList.toggle("open");
+        trigger.setAttribute("aria-expanded", String(isOpen));
+      });
+      document.addEventListener("click", (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.classList.remove("open");
+          trigger.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
