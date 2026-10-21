@@ -327,9 +327,9 @@
   cursor: pointer;
 }
 
-/* Storyboard and animation full-width media */
+/* Storyboard video and slides side-by-side on desktop */
 .work-gallery.storyboard-gallery {
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   max-width: none;
   gap: 30px;
   margin-bottom: 32px;
@@ -351,4 +351,40 @@
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+/* Keep both storyboard embeds readable on narrower screens. */
+@media (max-width: 768px) {
+  .work-gallery.storyboard-gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Explicit viewport centering: the site-wide reset removes dialog margins. */
+.portfolio-lightbox[open] {
+  position: fixed;
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  width: max-content;
+  height: max-content;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100dvh - 32px);
+}
+.portfolio-lightbox img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: calc(100vw - 48px);
+  max-height: calc(100dvh - 48px);
+  object-fit: contain;
+}
+.portfolio-lightbox-close {
+  top: 8px;
+  right: 8px;
 }
