@@ -181,14 +181,15 @@
    STORYBOARD TITLE
 ========================= */
 
-.storyboard-title {
-    display: block;
+.work-gallery.storyboard-gallery > .storyboard-title {
+    grid-column: 1 / -1;
     width: 100%;
     text-align: center;
+    justify-self: center;
     font-size: 28px;
     font-weight: 500;
-    margin: 0 auto 30px;
     color: #222;
+    margin: 0;
 }
 .work-gallery.storyboard-gallery {
     display: grid;
