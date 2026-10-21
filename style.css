@@ -468,13 +468,80 @@ footer {
 }
 
 /* ========================================
-   MOBILE
+   NAVIGATION DROPDOWN
+   Also open on tap, not just on hover
 ======================================== */
 
+.dropdown.open .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scaleY(1);
+    transition: opacity 0.3s ease, transform 0.35s ease, visibility 0s;
+}
+
+/* ========================================
+   TABLET & MOBILE HEADER
+======================================== */
+
+@media (max-width: 850px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 16px 16px 14px;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: clamp(20px, 5.5vw, 32px);
+        max-width: 100%;
+        text-align: center;
+    }
+
+    header nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-width: 0;
+        gap: clamp(14px, 5vw, 28px);
+        flex-wrap: wrap;
+    }
+
+    header nav > a,
+    header nav > .dropdown > a {
+        font-size: clamp(18px, 4.5vw, 23px);
+    }
+
+    header .dropdown-content {
+        left: 50%;
+        right: auto;
+        width: max-content;
+        min-width: 200px;
+        max-width: calc(100vw - 32px);
+        transform: translate(-50%, -8px) scaleY(0.85);
+        transform-origin: top center;
+    }
+
+    header .dropdown:hover .dropdown-content,
+    header .dropdown:focus-within .dropdown-content,
+    header .dropdown.open .dropdown-content {
+        transform: translate(-50%, 0) scaleY(1);
+    }
+
+    header .dropdown-content a {
+        font-size: 19px;
+        white-space: normal;
+    }
+}
+
+/* ========================================
+   SMALL SCREENS
+======================================== */
 
 @media (max-width: 500px) {
-
-    /* Keep all sections within the device width */
     header,
     .hero,
     .projects,
@@ -486,7 +553,6 @@ footer {
         box-sizing: border-box;
     }
 
-    /* Reduce horizontal padding */
     .projects {
         padding: 30px 15px;
     }
@@ -505,35 +571,7 @@ footer {
         padding: 25px 20px;
     }
 
-    /* Stack project cards vertically */
     .project-grid {
         grid-template-columns: minmax(0, 1fr);
     }
-
-    /* Allow navigation links to wrap */
-    nav {
-        width: 100%;
-        max-width: 100%;
-        flex-wrap: wrap;
-        box-sizing: border-box;
-    }
-}
-
-
-    nav a {
-        font-size: 21px;
-    }
-
-    /* Dropdown */
-
-    .dropdown-content {
-        left: 50%;
-        min-width: 200px;
-        transform: translate(-50%, -8px) scaleY(0.85);
-        transform-origin: top center;
-    }
-
-    .dropdown:hover .dropdown-content,
-    .dropdown:focus-within .dropdown-content {
-        transform: translate(-50%, 0) scaleY(1);
 }
