@@ -67,20 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
   audio.addEventListener("timeupdate", save);
   window.addEventListener("pagehide", save);
 
-  // Clicking elsewhere stops a playing video and resumes the soundtrack.
-  document.addEventListener("pointerdown", event => {
-    if (event.target.closest(".portfolio-music")) return;
-    const inVideo = event.target.closest("iframe, .embed-wrapper, .animation-video");
-    if (active.size && !inVideo) {
-      for (const p of active) {
-        try { p.pauseVideo(); } catch (_) {}
-      }
-      active.clear();
+  // Browser autoplay restrictions may require a first interaction.
+  // Clicking away from a video never pauses the video or resumes the music.
+  document.addEventListener("pointerdown", () => {
+    if (blocked && wanted && !active.size) {
       resume();
-    } else if (blocked && wanted && !active.size && !inVideo) {
-      resume(); // Browsers commonly require a first user gesture to play sound.
     }
-  }, true);
+  }, { once: true, capture: true });
 
   const frames = Array.from(document.querySelectorAll(
     'iframe[src*="youtube.com/embed/"], iframe[src*="youtube-nocookie.com/embed/"]'));
