@@ -576,3 +576,51 @@ footer {
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+
+/* Royalty-free background music player, available on every page. */
+.portfolio-music {
+    position: fixed;
+    z-index: 1200;
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    max-width: calc(100vw - 32px);
+    padding: 8px 11px;
+    border: 1px solid rgba(20,20,20,0.12);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.94);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    font-family: Arial, sans-serif;
+    line-height: 1.3;
+}
+.portfolio-music-toggle {
+    padding: 5px 8px;
+    border: 0;
+    border-radius: 7px;
+    background: #242424;
+    color: #fff;
+    font: 600 13px/1.3 Arial, sans-serif;
+    cursor: pointer;
+}
+.portfolio-music-toggle:focus-visible,
+.portfolio-music-credit:focus-visible {
+    outline: 2px solid #444;
+    outline-offset: 3px;
+}
+.portfolio-music-credit {
+    color: #333;
+    font: 10px/1.3 Arial, sans-serif;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+@media (max-width: 500px) {
+    .portfolio-music {
+        right: max(9px, env(safe-area-inset-right));
+        bottom: max(9px, env(safe-area-inset-bottom));
+        padding: 6px 8px;
+    }
+}
