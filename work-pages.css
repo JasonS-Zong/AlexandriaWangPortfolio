@@ -388,3 +388,8 @@
   top: 8px;
   right: 8px;
 }
+
+/* Space multiple animation videos consistently. */
+.animation-video + .animation-video {
+  margin-top: 32px;
+}
