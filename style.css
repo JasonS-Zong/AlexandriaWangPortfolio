@@ -55,7 +55,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    color: #111;
+    color: #444;
     font-size: 24px;
     text-align: center;
     /* Thin white outline for all text, including subpages. */
@@ -113,7 +113,7 @@ header {
     font-size: 36px;
     font-weight: normal;
     text-decoration: none;
-    color: #111;
+    color: #444;
     white-space: nowrap;
     flex-shrink: 0;
 }
@@ -127,7 +127,7 @@ nav {
 }
 
 nav a {
-    color: #111;
+    color: #444;
     text-decoration: none;
     font-size: 29px;
     white-space: nowrap;
@@ -204,7 +204,7 @@ nav a:hover {
     font-size: 24px;
     white-space: nowrap;
     text-decoration: none;
-    color: #111;
+    color: #444;
 
     opacity: 1;
     transform: translateY(0);
@@ -443,7 +443,7 @@ nav a:hover {
     align-items: center;
     gap: 15px;
 
-    color: #111;
+    color: #444;
     font-size: 28px;
     text-decoration: none;
 
