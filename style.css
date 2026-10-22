@@ -600,13 +600,16 @@ footer {
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     font-family: Arial, sans-serif;
     line-height: 1.3;
+    color: #444;
+    -webkit-text-stroke: 1px #fff;
 }
 .portfolio-music-toggle {
     padding: 5px 8px;
     border: 0;
     border-radius: 7px;
-    background: #242424;
-    color: #fff;
+    background: #f0f0f0;
+    color: #444;
+    -webkit-text-stroke: 1px #fff;
     font: 600 13px/1.3 Arial, sans-serif;
     cursor: pointer;
 }
@@ -616,7 +619,8 @@ footer {
     outline-offset: 3px;
 }
 .portfolio-music-credit {
-    color: #333;
+    color: #444;
+    -webkit-text-stroke: 1px #fff;
     font: 10px/1.3 Arial, sans-serif;
     text-decoration: underline;
     text-underline-offset: 2px;
