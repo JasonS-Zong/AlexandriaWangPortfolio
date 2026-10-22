@@ -333,6 +333,7 @@ nav a:hover {
 
 .project-overlay h3 {
     color: white;
+    -webkit-text-stroke: 1px #fff;
     font-size: clamp(12px, 12cqw, 60px);
     font-weight: normal;
     text-align: center;
