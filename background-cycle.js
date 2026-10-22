@@ -21,7 +21,7 @@
     preloadNext();
     window.setInterval(() => {
       current = (current + 1) % backgrounds.length;
-      document.body.style.backgroundImage = 'url("' + backgrounds[current] + '")';
+      document.body.style.backgroundImage = 'linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("' + backgrounds[current] + '")';
       preloadNext();
     }, intervalMs);
   }
