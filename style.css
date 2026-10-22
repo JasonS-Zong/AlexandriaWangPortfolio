@@ -632,3 +632,39 @@ footer {
         padding: 6px 8px;
     }
 }
+
+/* Centered animated GIF background that plays on mobile.
+   A fixed <img> avoids the mobile limitations of background-attachment: fixed. */
+html.portfolio-gif-active {
+    background-color: #ffb7ce;
+}
+html.portfolio-gif-active body {
+    position: relative;
+    isolation: isolate;
+    background-image: none;
+    background-color: transparent;
+}
+.portfolio-gif-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    overflow: hidden;
+    pointer-events: none;
+}
+.portfolio-gif-backdrop img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center center;
+}
+.portfolio-gif-backdrop::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.3);
+}
