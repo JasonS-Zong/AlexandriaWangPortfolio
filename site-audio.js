@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   audio.src = "https://opengameart.org/sites/default/files/ChillLofiR_0.mp3";
   audio.loop = true;
   audio.volume = 0.22;
-  audio.preload = "metadata";
+  audio.autoplay = true;
+  audio.preload = "auto";
   document.body.appendChild(audio);
 
   const widget = document.createElement("div");
@@ -67,13 +68,16 @@ document.addEventListener("DOMContentLoaded", () => {
   audio.addEventListener("timeupdate", save);
   window.addEventListener("pagehide", save);
 
-  // Browser autoplay restrictions may require a first interaction.
-  // Clicking away from a video never pauses the video or resumes the music.
-  document.addEventListener("pointerdown", () => {
-    if (blocked && wanted && !active.size) {
-      resume();
-    }
-  }, { once: true, capture: true });
+  // Attempt audible playback on page load (see resume() at the end).
+  // Browsers may block that until a visitor interacts with the site.
+  // Retry on a genuine visitor gesture; never pause a playing video.
+  const unlockPlayback = event => {
+    if (!blocked || !wanted || active.size || unavailable || !audio.paused) return;
+    if (event.target.closest && event.target.closest(".portfolio-music")) return;
+    resume();
+  };
+  document.addEventListener("pointerdown", unlockPlayback, { capture: true });
+  document.addEventListener("keydown", unlockPlayback, { capture: true });
 
   const frames = Array.from(document.querySelectorAll(
     'iframe[src*="youtube.com/embed/"], iframe[src*="youtube-nocookie.com/embed/"]'));
