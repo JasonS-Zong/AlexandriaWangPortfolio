@@ -59,7 +59,7 @@ body {
     font-size: 24px;
     text-align: center;
     /* Thin white outline for all text, including subpages. */
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 5px #fff;
     paint-order: stroke fill;
 }
 
