@@ -393,3 +393,11 @@
 .animation-video + .animation-video {
   margin-top: 32px;
 }
+
+/* Label the lead video in the animation section. */
+.animation-section-title {
+  text-align: center;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 500;
+  margin: 0 0 24px;
+}
