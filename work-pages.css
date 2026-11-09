@@ -403,3 +403,11 @@
   font-weight: 500;
   margin: 0 0 24px;
 }
+
+/* Santa intro artwork at the top of the storyboard page */
+.storyboard-gallery .storyboard-intro-image {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
