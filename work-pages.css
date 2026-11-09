@@ -404,8 +404,8 @@
   margin: 0 0 24px;
 }
 
-/* Santa intro artwork at the top of the storyboard page */
-.storyboard-gallery .storyboard-intro-image {
+/* Santa intro artwork at the top of the backgrounds page */
+.work-gallery .background-intro-image {
     grid-column: 1 / -1;
     width: 100%;
     height: auto;
