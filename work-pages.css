@@ -104,7 +104,7 @@
     border: none;
     overflow: hidden;
     background: #f0f0f0;
-    cursor: url("images/hover-piggy-cursor.png") 64 64, pointer;
+    cursor: url("images/hover-piggy-cursor.png?v=2") 64 64, pointer;
     text-align: left;
 }
 
@@ -173,7 +173,7 @@
     color: white;
     font-size: 32px;
     line-height: 1;
-    cursor: url("images/hover-piggy-cursor.png") 64 64, pointer;
+    cursor: url("images/hover-piggy-cursor.png?v=2") 64 64, pointer;
 }
 
 
@@ -326,7 +326,7 @@
   width: 38px;
   height: 38px;
   font-size: 27px;
-  cursor: url("images/hover-piggy-cursor.png") 64 64, pointer;
+  cursor: url("images/hover-piggy-cursor.png?v=2") 64 64, pointer;
 }
 
 /* Storyboard video and slides side-by-side on desktop */
