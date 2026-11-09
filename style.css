@@ -35,7 +35,7 @@ img {
 
 /* Custom piggy cursors: piggy is idle; the alternate expression marks interactive targets. */
 html, body {
-    cursor: url("images/piggy-cursor.png") 24 24, auto;
+    cursor: url("images/piggy-cursor.png") 48 48, auto;
 }
 
 a,
@@ -46,7 +46,7 @@ input[type="reset"],
 select,
 [role="button"],
 summary {
-    cursor: url("images/hover-piggy-cursor.png") 24 24, pointer;
+    cursor: url("images/hover-piggy-cursor.png") 64 64, pointer;
 }
 
 
