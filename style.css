@@ -33,6 +33,22 @@ img {
     max-width: 100%;
 }
 
+/* Custom piggy cursors: piggy is idle; the alternate expression marks interactive targets. */
+html, body {
+    cursor: url("images/piggy-cursor.png") 24 24, auto;
+}
+
+a,
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+select,
+[role="button"],
+summary {
+    cursor: url("images/hover-piggy-cursor.png") 24 24, pointer;
+}
+
 
 * {
     margin: 0;
