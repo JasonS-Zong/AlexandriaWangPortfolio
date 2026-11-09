@@ -9,23 +9,41 @@ document.addEventListener("DOMContentLoaded", () => {
   audio.volume = 0.22;
   audio.autoplay = true;
   audio.preload = "auto";
+  audio.setAttribute("playsinline", "");
   document.body.appendChild(audio);
 
   const widget = document.createElement("div");
   widget.className = "portfolio-music";
-  widget.innerHTML = '<button class="portfolio-music-toggle" type="button" aria-label="Toggle background music" aria-pressed="false">♫ Play music</button><a href="https://opengameart.org/content/chill-lofi-inspired" target="_blank" rel="noopener noreferrer" class="portfolio-music-credit">Lo-fi by omfgdude · CC0</a>';
+  widget.innerHTML = '<button class="portfolio-music-toggle" type="button" aria-label="Play background music" aria-pressed="false">♫ Play music</button><a href="https://opengameart.org/content/chill-lofi-inspired" target="_blank" rel="noopener noreferrer" class="portfolio-music-credit">Lo-fi by omfgdude · CC0</a>';
   document.body.appendChild(widget);
+
   const button = widget.querySelector("button");
   const active = new Set();
   const players = [];
   let wanted = sessionStorage.getItem(enabledKey) !== "false";
   let blocked = false;
-  let unavailable = false;
+
+  function savePreference() {
+    sessionStorage.setItem(enabledKey, String(wanted));
+  }
 
   function label() {
-    button.textContent = !wanted ? "♫ Music off" : active.size ? "♫ Paused for video" :
-      unavailable ? "♫ Music unavailable" : !audio.paused ? "♫ Pause music" : "♫ Play music";
-    button.setAttribute("aria-pressed", String(wanted));
+    if (!wanted) {
+      button.textContent = "♫ Play music";
+      button.setAttribute("aria-label", "Play background music");
+    } else if (active.size) {
+      button.textContent = "♫ Paused for video";
+      button.setAttribute("aria-label", "Music is paused while a video plays");
+    } else if (!audio.paused) {
+      button.textContent = "♫ Pause music";
+      button.setAttribute("aria-label", "Pause background music");
+    } else {
+      // If autoplay was blocked, clicking this retries playback instead of
+      // accidentally switching the user's music preference off.
+      button.textContent = "♫ Play music";
+      button.setAttribute("aria-label", "Play background music");
+    }
+    button.setAttribute("aria-pressed", String(wanted && !active.size && !audio.paused));
   }
 
   function stop() {
@@ -34,53 +52,95 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function resume() {
-    if (!wanted || active.size || unavailable) { label(); return; }
-    const attempt = audio.play();
-    if (attempt && typeof attempt.then === "function") {
-      attempt.then(() => { blocked = false; label(); })
-        .catch(() => { blocked = true; label(); });
+    if (!wanted || active.size) {
+      label();
+      return;
     }
-    label();
+
+    // Reload after a media error so the Play button can retry the soundtrack.
+    if (audio.error) audio.load();
+
+    try {
+      const attempt = audio.play();
+      if (attempt && typeof attempt.then === "function") {
+        attempt.then(() => {
+          blocked = false;
+          label();
+        }).catch(() => {
+          blocked = true;
+          label();
+        });
+      } else {
+        blocked = false;
+        label();
+      }
+    } catch (_) {
+      blocked = true;
+      label();
+    }
   }
 
   button.addEventListener("click", () => {
-    wanted = !wanted;
-    sessionStorage.setItem(enabledKey, String(wanted));
-    if (wanted) resume(); else stop();
+    if (!wanted) {
+      wanted = true;
+      savePreference();
+      resume();
+    } else if (active.size || !audio.paused) {
+      wanted = false;
+      savePreference();
+      stop();
+    } else {
+      // Music is wanted but not currently playing (usually autoplay was
+      // blocked). Retry playback on this direct button interaction.
+      resume();
+    }
   });
+
   audio.addEventListener("play", label);
   audio.addEventListener("pause", label);
-  audio.addEventListener("error", () => { unavailable = true; label(); });
+  audio.addEventListener("error", () => {
+    blocked = true;
+    label();
+  });
+
   const previous = Number(sessionStorage.getItem(positionKey));
   if (Number.isFinite(previous) && previous > 0) {
     audio.addEventListener("loadedmetadata", () => {
       if (Number.isFinite(audio.duration) && audio.duration > 0) {
         audio.currentTime = previous % audio.duration;
       }
-    }, {once: true});
+    }, { once: true });
   }
+
   function save() {
     if (Number.isFinite(audio.currentTime)) {
       sessionStorage.setItem(positionKey, String(audio.currentTime));
     }
-    sessionStorage.setItem(enabledKey, String(wanted));
+    savePreference();
   }
   audio.addEventListener("timeupdate", save);
   window.addEventListener("pagehide", save);
 
-  // Attempt audible playback on page load (see resume() at the end).
-  // Browsers may block that until a visitor interacts with the site.
-  // Retry on a genuine visitor gesture; never pause a playing video.
+  // Try to start audible playback as soon as each page opens. Browsers may
+  // block sound until a visitor gesture; retry on the first gesture anywhere
+  // on the page. Do not pause videos when the visitor clicks outside them.
   const unlockPlayback = event => {
-    if (!blocked || !wanted || active.size || unavailable || !audio.paused) return;
+    if (!blocked || !wanted || active.size || !audio.paused) return;
     if (event.target.closest && event.target.closest(".portfolio-music")) return;
     resume();
   };
   document.addEventListener("pointerdown", unlockPlayback, { capture: true });
   document.addEventListener("keydown", unlockPlayback, { capture: true });
 
+  // If this page is restored from the browser's back/forward cache, try again.
+  window.addEventListener("pageshow", () => {
+    if (wanted && audio.paused && !active.size) resume();
+  });
+
   const frames = Array.from(document.querySelectorAll(
-    'iframe[src*="youtube.com/embed/"], iframe[src*="youtube-nocookie.com/embed/"]'));
+    'iframe[src*="youtube.com/embed/"], iframe[src*="youtube-nocookie.com/embed/"]'
+  ));
+
   if (frames.length) {
     frames.forEach((frame, i) => {
       const url = new URL(frame.src, location.href);
@@ -92,11 +152,14 @@ document.addEventListener("DOMContentLoaded", () => {
       frame.src = url.toString();
       frame.id ||= "portfolio-youtube-" + i;
     });
+
     const priorCallback = window.onYouTubeIframeAPIReady;
     window.onYouTubeIframeAPIReady = function () {
       if (typeof priorCallback === "function") priorCallback();
+
       frames.forEach(frame => {
-        const player = new YT.Player(frame.id, {
+        let player;
+        player = new YT.Player(frame.id, {
           events: {
             onStateChange: event => {
               if (event.data === YT.PlayerState.PLAYING) {
@@ -107,7 +170,11 @@ document.addEventListener("DOMContentLoaded", () => {
                   }
                 }
                 stop();
-              } else if ([YT.PlayerState.PAUSED, YT.PlayerState.ENDED, YT.PlayerState.CUED].includes(event.data)) {
+              } else if ([
+                YT.PlayerState.PAUSED,
+                YT.PlayerState.ENDED,
+                YT.PlayerState.CUED
+              ].includes(event.data)) {
                 active.delete(player);
                 if (!active.size) resume();
               }
@@ -117,6 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
         players.push(player);
       });
     };
+
     if (window.YT && window.YT.Player) {
       window.onYouTubeIframeAPIReady();
     } else {
@@ -127,6 +195,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Default to music on whenever the visitor has not chosen otherwise.
+  // The browser may require a click/tap before it permits audible autoplay.
   if (wanted) resume();
   else label();
 });

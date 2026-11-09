@@ -186,10 +186,12 @@
     width: 100%;
     text-align: center;
     justify-self: center;
-    font-size: 28px;
+    font-size: clamp(30px, 4vw, 54px);
+    line-height: 1.12;
     font-weight: 500;
     color: #444;
     margin: 0;
+    text-wrap: balance;
 }
 .work-gallery.storyboard-gallery {
     display: grid;
