@@ -389,6 +389,14 @@ nav a:hover {
     text-align: center;
 }
 
+.about-text {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px 40px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
 .about h2 {
     font-size: 26px;
     font-weight: normal;
@@ -564,6 +572,10 @@ footer {
 
     .about {
         padding: 70px 20px;
+    }
+
+    .about-text {
+        padding: 22px 16px;
     }
 
     .contact {
