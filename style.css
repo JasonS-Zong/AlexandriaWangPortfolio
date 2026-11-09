@@ -35,7 +35,7 @@ img {
 
 /* Custom piggy cursors: piggy is idle; the alternate expression marks interactive targets. */
 html, body {
-    cursor: url("images/piggy-cursor.png") 24 24, auto;
+    cursor: url("images/piggy-cursor.png?v=2") 48 48, auto;
 }
 
 a,
@@ -46,7 +46,7 @@ input[type="reset"],
 select,
 [role="button"],
 summary {
-    cursor: url("images/hover-piggy-cursor.png") 24 24, pointer;
+    cursor: url("images/hover-piggy-cursor.png?v=2") 64 64, pointer;
 }
 
 
@@ -143,7 +143,7 @@ header {
     width: 44px;
     height: 44px;
     flex-shrink: 0;
-    background-image: url("images/hover-piggy-cursor.png");
+    background-image: url("images/hover-piggy-cursor.png?v=2");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
