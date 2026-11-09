@@ -394,7 +394,7 @@ nav a:hover {
     max-width: 1400px;
     margin: 0 auto;
     padding: 32px 40px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.4);
 }
 
 .about h2 {
