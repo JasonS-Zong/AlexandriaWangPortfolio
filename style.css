@@ -33,6 +33,22 @@ img {
     max-width: 100%;
 }
 
+/* Custom piggy cursors: piggy is idle; the alternate expression marks interactive targets. */
+html, body {
+    cursor: url("images/piggy-cursor.png") 24 24, auto;
+}
+
+a,
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+select,
+[role="button"],
+summary {
+    cursor: url("images/hover-piggy-cursor.png") 24 24, pointer;
+}
+
 
 * {
     margin: 0;
@@ -110,12 +126,28 @@ header {
 }
 
 .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-size: 36px;
     font-weight: normal;
     text-decoration: none;
     color: #444;
     white-space: nowrap;
     flex-shrink: 0;
+}
+
+.logo::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background-image: url("images/hover-piggy-cursor.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.6;
 }
 
 nav {
@@ -511,6 +543,11 @@ footer {
         font-size: clamp(20px, 5.5vw, 32px);
         max-width: 100%;
         text-align: center;
+    }
+
+    .logo::after {
+        width: 36px;
+        height: 36px;
     }
 
     header nav {
