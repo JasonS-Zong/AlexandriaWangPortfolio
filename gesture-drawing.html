@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gesture Drawing — Alexandria Wang</title>
+  <link rel="icon" type="image/x-icon" href="images/2026_Wang_Alexandria_RUN_Still.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="work-pages.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">ALEXANDRIA WANG</a>
+    <nav>
+      <a href="index.html">home</a>
+      <div class="dropdown">
+        <a href="index.html#projects" class="work-trigger" aria-expanded="false">work</a>
+        <div class="dropdown-content">
+          <a href="character-design.html">character design</a>
+          <a href="backgrounds.html">backgrounds</a>
+          <a href="animation.html">animation</a>
+          <a href="storyboards.html">storyboards</a>
+          <a href="gesture-drawing.html" aria-current="page">gesture drawing</a>
+                              <a href="props.html">props</a>
+
+        </div>
+      </div>
+      <a href="index.html#contact">contact</a>
+    </nav>
+  </header>
+
+  <main class="work-detail">
+    <a class="back-link" href="index.html#projects">← Back to work</a>
+    <section class="work-hero">
+      <h1>Gesture Drawing</h1>
+      <p>Gesture studies, poses, and figure drawing.</p>
+    </section>
+    <section class="work-gallery" aria-label="Gesture Drawing gallery">
+    </section>
+  </main>
+
+  <footer>© 2026 Alexandria Wang. All rights reserved.</footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropdown = document.querySelector(".dropdown");
+      const trigger = dropdown.querySelector(".work-trigger");
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        const isOpen = dropdown.classList.toggle("open");
+        trigger.setAttribute("aria-expanded", String(isOpen));
+      });
+      document.addEventListener("click", (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.classList.remove("open");
+          trigger.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  </script>
+  <script src="portfolio-lightbox.js" defer></script>
+  <script src="site-audio.js?v=2" defer></script>
+  <script src="background-cycle.js" defer></script>
+</body>
+</html>
